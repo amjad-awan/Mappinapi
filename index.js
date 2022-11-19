@@ -8,10 +8,10 @@ const pinRout=require("./routes/pins")
 const userRout=require("./routes/users");
 app.use(express.json())
 app.use(cors())
-mongoose.connect(process.env.MONGO_URL,{ useNewUrlParser: true }, function (err) { 
+mongoose.connect("mongodb+srv://mappin:GRfTTTnBOaa0PTbH@cluster0.11uxcuh.mongodb.net/mappin?retryWrites=true&w=majority",{ useNewUrlParser: true }, function (err) { 
 	if (err) throw err; console.log('Successfully connected')})
 
-	app.use("/api/users/register",userRout);
+	app.use("/api/users/register",userRout)
 	app.use("/api/users",userRout)
 	app.use("/api/pins",pinRout)
 
